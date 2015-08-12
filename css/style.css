@@ -1,0 +1,16 @@
+.submit-form-btn
+{
+	pointer-events: none;
+	border: 1px solid #ddd;
+	background: #f1f1f1;
+	border-radius: 6px;
+	height: 40px;
+	width: 220px;
+	cursor: default;
+}
+.submit-form-btn.active
+{
+	cursor: pointer;
+	background: transparent;
+	pointer-events: all;
+}
