@@ -1,15 +1,22 @@
 <?php
+    error_reporting(E_ALL);
+    session_start();
     header('Content-type: text/html; charset=utf-8;');
 
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
+    include "Form_handler.php";
 
-    $link = mysqli_connect('localhost', 'root', '', 'wsr');
+    // echo "<pre>";
+    // print_r($_SERVER);
+
+    $link = mysqli_connect('localhost', 'root', '', 'wsr2015');
+    $link->set_charset("utf8");
+
+    $handler = new Form_handler($link);
 
     if(isset($_POST['submited'])) {
 
-        header("Location: thank.php");
+        $handler->insert($_POST);
+        // header("Location: thank.php");
     }
 
 ?>
