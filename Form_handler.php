@@ -21,21 +21,22 @@ class Form_handler
 		$this->sql = "INSERT INTO users 
 							(user_name, user_nickname, user_middlename,
 							 user_lastname, user_phone, user_email,
-							 user_education, user_password, user_status) VALUES 
+							 user_education, user_password, user_status, user_registered) VALUES 
 							('".$data["formFirstName"]."', '".$data["formNickName"]."',
 							 '".$data["formMiddleName"]."', '".$data["formLastName"]."',
 							 '".$data["formPhone"]."', '".$data["formEmail"]."', 
 							 '".$data["formEducation"]."', '".$this->password."',
-							 'ожидает подверждения')";
+							 'ожидает подверждения', NOW())";
 		$_SESSION["utoken"] = rand(0, 99999);
-		$_SESSION["user_email"] = $data["formNickName"];
+		$_SESSION["user_email"] = $data["formEmail"];
+
 		if ($this->link->query($this->sql)) {
-			header("Content-type: text/html; charset=utf8");
 			$message = "Спасибо за регистрацию, \n Ваш пароль: ".$this->password."\n"
 			."Для активации аккаунта перейдите по <a href='validate.php"."?utoken=".$_SESSION["utoken"]."'>ссылке</a>";
 
 			echo $message;
 			mail($data["formEmail"], 'Активация аккаунта', $message);
 		}
+		$this->link->close();
 	}
 }

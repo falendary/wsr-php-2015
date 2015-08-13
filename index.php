@@ -6,9 +6,9 @@
     include "Form_handler.php";
 
     // echo "<pre>";
-    // print_r($_SERVER);
+    // print_r($_POST);
 
-    $link = mysqli_connect('localhost', 'root', '', 'wsr2015');
+    $link = new mysqli('localhost', 'root', '', 'wsr2015');
     $link->set_charset("utf8");
 
     $handler = new Form_handler($link);
@@ -20,6 +20,7 @@
     }
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -52,7 +53,7 @@
             <input type="email" placeholder="Е-майл" name="formEmail" id="formEmail">
         </div>
         <div>
-            <select id="formEducation">
+            <select id="formEducation" name="formEducation">
                 <option value="intermediate">Среднее</option>
                 <option value="upperIntermediate">Среднеспециальное</option>
                 <option value="high">Высшие</option>

@@ -1,3 +1,8 @@
+body
+{
+	margin: 0;
+	padding: 0;
+}
 .submit-form-btn
 {
 	pointer-events: none;
@@ -13,4 +18,33 @@
 	cursor: pointer;
 	background: transparent;
 	pointer-events: all;
+}
+.overlay
+{
+	display: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,.4);
+}
+.overlay.active
+{
+	display: block;
+}
+.modal-auth
+{
+	display: none;
+	background: #fff;
+	width: 600px;
+	min-height: 400px;
+	padding: 20px;
+	margin-top: 10%;
+	margin-left: -300px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+}
+.modal-auth.active
+{
+	display: block;
 }
