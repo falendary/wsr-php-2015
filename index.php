@@ -65,6 +65,10 @@
                 Я согласен с лицензионным соглашением
             </label>
         </div>
+        <div>
+            <input type="text" id="formCaptcha" name="formCaptcha">
+            <img src="captcha.php" alt="">
+        </div>
         <input type="hidden" name="submited" value="submited">
         <button id="submitForm" type="submit" class="submit-form-btn">Отправить</button>
     </form>

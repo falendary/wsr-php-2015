@@ -16,6 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `questions`
+--
+
+DROP TABLE IF EXISTS `questions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `questions` (
+  `question_id` int(11) NOT NULL AUTO_INCREMENT,
+  `question_user_id` int(11) NOT NULL,
+  `question_text` text NOT NULL,
+  `question_type` varchar(255) NOT NULL,
+  `answers` int(11) NOT NULL,
+  PRIMARY KEY (`question_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `questions`
+--
+
+LOCK TABLES `questions` WRITE;
+/*!40000 ALTER TABLE `questions` DISABLE KEYS */;
+INSERT INTO `questions` VALUES (1,14,'Question # 1','intermediate',10),(2,14,'Question # 2','intermediate',0),(3,14,'Question # 3','intermediate',0),(4,14,'Question # 4','intermediate',0),(5,14,'Question # 5','intermediate',0),(6,14,'Question # 6','intermediate',0),(7,14,'Question # 7','intermediate',0),(8,14,'Question # 8','intermediate',0),(9,14,'Question # 9','intermediate',0),(10,14,'Question # ','intermediate',0),(11,14,'Question # 10','intermediate',0),(12,14,'Question # 1','upperintermediate',10),(13,14,'Question # 2','upperintermediate',0),(14,14,'Question # 3','upperintermediate',0),(15,14,'Question # 4','upperintermediate',0),(16,14,'Question # 5','upperintermediate',0),(17,14,'Question # 6','upperintermediate',0),(18,14,'Question # 7','upperintermediate',0),(19,14,'Question # 8','upperintermediate',0),(20,14,'Question # 9','upperintermediate',0),(21,14,'Question # 10','upperintermediate',0),(22,14,'Question # 1','high',10),(23,14,'Question # 2','high',0),(24,14,'Question # 3','high',0),(25,14,'Question # 4','high',0),(26,14,'Question # 5','high',0),(27,14,'Question # 6','high',0),(28,14,'Question # 7','high',0),(29,14,'Question # 8','high',0),(30,14,'Question # 9','high',0),(31,14,'Question # 10','high',0);
+/*!40000 ALTER TABLE `questions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -36,7 +63,7 @@ CREATE TABLE `users` (
   `user_status` varchar(255) NOT NULL,
   `user_question` text NOT NULL,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +72,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'','ÐµÐµÑƒÑ‹Ðµ','','','','','','','0000-00-00 00:00:00','',''),(2,'Ð¡ÐµÑ€Ð³ÐµÐ¹','Leguest','Ð¡ÐµÑ€Ð³ÐµÐµÐ²Ð¸Ñ‡','Ð–Ð¸Ñ‚ÐµÐ½ÐµÐ²','','12412412521\"','test@test.ru','','0000-00-00 00:00:00','',''),(3,'','','','','','','','','0000-00-00 00:00:00','',''),(4,'Сергеевич','Leguest','еерые','Сергей','','','','','0000-00-00 00:00:00','',''),(5,'Сергеевич','Leguest','еерые','Сергей','55cba126dc881','','','','0000-00-00 00:00:00','',''),(6,'Сергеевич','Leguest','еерые','Сергей','55cba31b02ffb','','','','0000-00-00 00:00:00','ожидает подверждения',''),(7,'Сергеевич','Leguest','еерые','Сергей','55cba326d3d56','','','','0000-00-00 00:00:00','ожидает подверждения',''),(8,'Сергеевич','Leguest','еерые','Сергей','55cba3368868a','','','','0000-00-00 00:00:00','ожидает подверждения',''),(9,'Сергеевич','Leguest','еерые','Сергей','55cba38ee7fd3','','','','0000-00-00 00:00:00','ожидает подверждения',''),(10,'Сергеевич','Leguest','еерые','Сергей','55cba3956cba3','','','','0000-00-00 00:00:00','ожидает подверждения',''),(11,'Сергеевич','Leguest','еерые','Сергей','55cba3ded8bcf','','','','0000-00-00 00:00:00','ожидает подверждения',''),(12,'Сергеевич','Leguest','еерые','Сергей','55cba4029c3d9','','','','0000-00-00 00:00:00','ожидает подверждения','');
+INSERT INTO `users` VALUES (19,'Сергей','Leguest','Сергеевич','Житенев','55cd180709923','132421521','test@test.ru','upperIntermediate','2015-08-14 01:19:51','ожидает подверждения',''),(20,'Анастасия','Настя','Александровна','Князева','55cd183926a83','1234','test@test.ru','intermediate','2015-08-14 01:20:41','ожидает подверждения','');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +85,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-08-12 23:53:47
+-- Dump completed on 2015-08-14  1:22:44
