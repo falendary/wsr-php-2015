@@ -15,7 +15,7 @@
 
     	$sqlUsr = "SELECT * FROM users where user_education = '".$row['question_type']."'";
     	$resultUsr = $link->query($sqlUsr);
-    	$usrArray = [];
+    	$usrArray = array();
 
     	while ($rowUsr = $resultUsr->fetch_assoc()) {
     		array_push($usrArray, $rowUsr);
@@ -30,31 +30,33 @@
 </head>
 <body>
     <div class="workrea <?=$authed?>">
-        <a href="logout.php">Выйти</a>
-        <ul>
-            <li><a href="/rezult/index.php?intermediate=true" class="intermediate btn">СРЕДНЕЕ</a></li>
-            <li><a href="/rezult/?upperintermediate=true" class="upper-intermediate btn">СРЕДНЕСПЕЦИАЛЬНОЕ</a></li>
-            <li><a href="/rezult/?high=true" class="high btn">ВЫСШЕЕ</a></li>
-        </ul>
+      <div class="wrapper">
+          <a class="logout-btn" href="logout.php">Выйти</a>
+          <ul class="education-list">
+              <li><a href="/rezult/index.php?intermediate=true" class="intermediate btn">СРЕДНЕЕ</a></li>
+              <li><a href="/rezult/?upperintermediate=true" class="upper-intermediate btn">СРЕДНЕСПЕЦИАЛЬНОЕ</a></li>
+              <li><a href="/rezult/?high=true" class="high btn">ВЫСШЕЕ</a></li>
+          </ul>
 
-       	<p>
-       		Вопрос:<?=$row["question_text"]?>
-       	</p>
-       	<ul>
-       	<?php foreach ($usrArray as $user) { ?>
-       		<li class="user-item"
-       			data-user-name="<?=$user["user_name"]?>"
-       			data-user-nickname="<?=$user["user_nickname"]?>"
-       			data-user-middlename="<?=$user["user_middlename"]?>"
-       			data-user-lastname="<?=$user["user_lastname"]?>"
-       			data-user-phone="<?=$user["user_phone"]?>"
-       			data-user-email="<?=$user["user_email"]?>"
-       			data-user-education="<?=$user["user_education"]?>"
-       			data-user-status="<?=$user["user_status"]?>">
-       			<a href="#" class="usr"><?=$user["user_name"]?></a>
-       		</li>
-       	<?php }?>
-       	</ul>
+         	<p>
+         		Вопрос:<?=$row["question_text"]?>
+         	</p>
+         	<ul>
+         	<?php foreach ($usrArray as $user) { ?>
+         		<li class="user-item"
+         			data-user-name="<?=$user["user_name"]?>"
+         			data-user-nickname="<?=$user["user_nickname"]?>"
+         			data-user-middlename="<?=$user["user_middlename"]?>"
+         			data-user-lastname="<?=$user["user_lastname"]?>"
+         			data-user-phone="<?=$user["user_phone"]?>"
+         			data-user-email="<?=$user["user_email"]?>"
+         			data-user-education="<?=$user["user_education"]?>"
+         			data-user-status="<?=$user["user_status"]?>">
+         			<a href="#" class="usr"><?=$user["user_name"]?></a>
+         		</li>
+         	<?php }?>
+         	</ul>
+      </div>
     </div>
 
     <h1 class="emptyness <?=$active?>">Ну вот, пустота... нажмите F5</h1>

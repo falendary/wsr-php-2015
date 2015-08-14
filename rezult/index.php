@@ -13,7 +13,7 @@
         $sql = "SELECT * FROM questions WHERE question_type = '".$questionType."'";
         $result = $link->query($sql);
 
-        $arrayResult = [];
+        $arrayResult = array();
 
         while($row = $result->fetch_assoc()) {
             array_push($arrayResult, $row);
@@ -22,7 +22,7 @@
         return $arrayResult;
     }
 
-    $questionArray = [];
+    $questionArray = array();
 
     if (isset($_GET["intermediate"]) && $_GET["intermediate"] == 'true') {
         $questionArray = getQuestions("intermediate");
@@ -41,23 +41,25 @@
 </head>
 <body>
     <div class="workrea <?=$authed?>">
-        <a href="logout.php">Выйти</a>
-        <ul>
-            <li><a href="/rezult/index.php?intermediate=true" class="intermediate btn">СРЕДНЕЕ</a></li>
-            <li><a href="/rezult/?upperintermediate=true" class="upper-intermediate btn">СРЕДНЕСПЕЦИАЛЬНОЕ</a></li>
-            <li><a href="/rezult/?high=true" class="high btn">ВЫСШЕЕ</a></li>
-        </ul>
+        <div class="wrapper">
+            <a class="logout-btn" href="logout.php">Выйти</a>
+            <ul class="education-list">
+                <li><a href="/rezult/index.php?intermediate=true" class="intermediate btn">СРЕДНЕЕ</a></li>
+                <li><a href="/rezult/?upperintermediate=true" class="upper-intermediate btn">СРЕДНЕСПЕЦИАЛЬНОЕ</a></li>
+                <li><a href="/rezult/?high=true" class="high btn">ВЫСШЕЕ</a></li>
+            </ul>
 
-        <ul>
-            <?php foreach ($questionArray as $item) {?>
-                <li><?=$item["question_text"]?> | <a 
-                <?php 
-                    if($item["answers"] != 0) { 
-                        echo "href='/detail.php?qid=".$item["question_id"]."'";
-                    }
-                ?> ><?=$item["answers"]?></a></li>
-            <?php }?>
-        </ul>
+            <ul class="question-list">
+                <?php foreach ($questionArray as $item) {?>
+                    <li><?=$item["question_text"]?> | <a 
+                    <?php 
+                        if($item["answers"] != 0) { 
+                            echo "href='/detail.php?qid=".$item["question_id"]."'";
+                        }
+                    ?> ><?=$item["answers"]?></a></li>
+                <?php }?>
+            </ul>
+        </div>
     </div>
 
     <h1 class="emptyness <?=$active?>">Ну вот, пустота... нажмите F5</h1>

@@ -15,8 +15,26 @@
 
     if(isset($_POST['submited'])) {
 
-        $handler->insert($_POST);
+        $validateSuccess = true;
+
+        foreach ($_POST as $item) {
+            if (empty($item)) {
+                $validateSuccess = false;
+                header("Location: index.php?validate=error");
+            }
+        }
+
+        if ($validateSuccess) {
+            $handler->insert($_POST);    
+        }
         // header("Location: thank.php");
+    }
+
+    if (isset($_GET['validate']) && $_GET['validate'] == 'error') {
+        $error = 'error';
+    } else 
+    {
+        $error = '';
     }
 
 ?>
@@ -27,7 +45,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <form action="index.php" method="POST">
+    <div class="wrapper">
+        <form action="index.php" class="form-complete" method="POST">
         <div>
             <label for="formNickName">Никнейм*</label>
             <input type="text" placeholder="Никнейм" name="formNickName" id="formNickName">
@@ -71,7 +90,9 @@
         </div>
         <input type="hidden" name="submited" value="submited">
         <button id="submitForm" type="submit" class="submit-form-btn">Отправить</button>
-    </form>
+        <h1 class="error-msg <?=$error?>">Ошибка формы</h1>
+        </form>
+    </div>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/main.js"></script>
 </body>

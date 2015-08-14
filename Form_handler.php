@@ -18,14 +18,22 @@ class Form_handler
 
 		$this->password = uniqid();
 
+		$formFirstName = htmlspecialchars($data["formFirstName"]);
+		$formNickName = htmlspecialchars($data["formNickName"]);
+		$formMiddleName = htmlspecialchars($data["formMiddleName"]);
+		$formLastName = htmlspecialchars($data["formLastName"]);
+		$formPhone = htmlspecialchars($data["formPhone"]);
+		$formEmail = htmlspecialchars($data["formEmail"]);
+		$formEducation = htmlspecialchars($data["formEducation"]);
+
 		$this->sql = "INSERT INTO users 
 							(user_name, user_nickname, user_middlename,
 							 user_lastname, user_phone, user_email,
 							 user_education, user_password, user_status, user_registered) VALUES 
-							('".$data["formFirstName"]."', '".$data["formNickName"]."',
-							 '".$data["formMiddleName"]."', '".$data["formLastName"]."',
-							 '".$data["formPhone"]."', '".$data["formEmail"]."', 
-							 '".$data["formEducation"]."', '".$this->password."',
+							('".$formNickName."', '".$formNickName."',
+							 '".$formMiddleName."', '".$formLastName."',
+							 '".$formPhone."', '".$formEmail."', 
+							 '".$formEducation."', '".$this->password."',
 							 'ожидает подверждения', NOW())";
 		$_SESSION["utoken"] = rand(0, 99999);
 		$_SESSION["user_email"] = $data["formEmail"];

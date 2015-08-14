@@ -2,6 +2,74 @@ body
 {
 	margin: 0;
 	padding: 0;
+	font-family: arial;
+}
+.form-complete
+{
+	padding: 20px;
+}
+.form-complete input
+{
+	display: block;
+	margin: .5em;
+	width: 200px;
+}
+.form-complete input[type="checkbox"]
+{
+	width: auto;
+	display: inline-block;
+}
+.form-complete label
+{
+	margin-left: .5em;
+}
+.form-complete  select
+{
+	width: 200px;
+	margin: .5em;	
+}
+.close
+{
+	float: right;
+}
+.modal-auth input
+{
+	display: block;
+	margin: .5em;
+}
+.modal-auth a
+{
+	text-decoration: none;
+	margin-left: .5em;
+}
+.modal-auth a:hover
+{
+	color: #1f1f1f;
+}
+.question-list
+{
+	padding-left: 0;
+	list-style-type: none;
+}
+.question-list li 
+{
+	margin: 1em;
+	padding-bottom: .5em;
+	border-bottom: 1px solid #ddd;
+}
+.question-list li:last-child
+{
+	border-bottom: 0;
+}
+.logout-btn
+{
+	float: right;
+	text-decoration: none;
+	margin-top: 1em;
+}
+.logout-btn:hover
+{
+	color: #1f1f1f;
 }
 .hidden
 {
@@ -11,6 +79,32 @@ body
 {
 	display: block;
 }
+.wrapper
+{
+	width: 960px;
+	margin: 0 auto;
+}
+.education-list
+{
+	list-style-type: none;
+	padding: 0;
+	overflow: hidden;
+	border-bottom: 1px solid #ddd;
+}
+.education-list li
+{
+	margin: 1em;
+	float: left;
+}
+.education-list li a
+{
+	text-decoration: none;
+}
+.education-list li a:hover
+{
+	color: #1f1f1f;	
+}
+
 .submit-form-btn
 {
 	pointer-events: none;
@@ -20,6 +114,15 @@ body
 	height: 40px;
 	width: 220px;
 	cursor: default;
+}
+.error-msg
+{
+	display: none;
+	color: red;
+}
+.error-msg.error
+{
+	display: block;
 }
 .submit-form-btn.active
 {
